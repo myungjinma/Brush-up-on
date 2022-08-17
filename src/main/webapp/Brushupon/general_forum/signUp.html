@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../general_forum/StyleCss/signUp.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        
+        <a href="/prj/Brushupon/general_forum/mainPage.html">
+            <img class="img" src = "/prj/Brushupon/images/logo.png"  >
+        </a>
+    </header>
+       
+
+   <form method="post" name="frm" action="/prj/signUpOk">
+    
+        <div class="wrap" > 
+
+            <h2>회원가입</h2>
+
+            <div class="info_div">
+                아이디 : <input type="text"placeholder="아이디를 입력하세요" name="userId"  id="userId" class="idInput"> 
+                <button type="button" class="idDoubleCheck" onclick="idDoubleCheck()" value="아이디 중복확인">중복확인</button>  
+            </div>
+
+            <div class="info_div">
+                비밀번호 : <input type="password"  placeholder="비밀번호를 입력하세요" name="userPassword" class="pwInput">
+            </div> 
+
+            <div class="info_div">
+                비밀번호 확인 : <input type="password" placeholder="비밀번호를 다시 입력하세요" name="userDoublePW" class="doublPwInput">
+            </div> 
+
+
+            <div class="info_div">
+                이름 : <input type="text" placeholder="이름을 입력하세요" name="userName" class="nameInput"> 
+                
+            </div>
+
+            <div class="info_div" >
+                생년월일 : <input type="number" placeholder="8자리 생년월일을 입력하세요(-제외하고숫자만)" name="userBirthday" class="birthInput"> 
+                
+            </div>
+
+            <div class="info_div">
+                휴대폰번호 : <input type="number" placeholder="휴대폰번호를 입력하세요" name="userTel" class="phoneInput"> 
+                
+            </div>   
+        </div>
+        <button type="button" onclick="check()" class="signUpBtn" >회원가입</button>           
+    </form>
+
+    <script>
+        function check(){
+            
+            let userId =document.frm.userId;
+            let userPassword = document.frm.userPassword;
+            let userDoublePW = document.frm.userDoublePW;
+            let userName = document.frm.userName;
+            let userBirthday = document.frm.userBirthday;
+            let userTel = document.frm.userTel;
+
+            if(userId.value==""){
+                alert("아이디를 입력하세요.");
+                userId.focus();
+            }else if(userPassword.value==""){
+                alert("비밀번호를 입력하세요.");
+                userPassword.focus();
+            }else if(userDoublePW.value==""){
+                alert("비밀번호를 확인하시고 다시 입력하세요.");
+                userPassword.focus();
+            }else if(userName.value ==""){
+                alert("이름을 입력하세요.");
+                userName.focus();
+            }else if(userBirthday.value==""){
+                alert("생년월일을 입력하세요.");
+                userBirthday.focus(); 
+            }else if(userTel.value==""){
+                alert("휴대폰 번호를 입력하세요.");
+                userTel.focus();
+            }else{
+                alert("축하합니다! 회원가입이 완료되었습니다.");
+                document.frm.submit();
+            }
+           
+       }
+        
+       function idDoubleCheck(){
+
+        	//jquery로 태그선택
+     	   let userId = $("#userId").val();
+     		alert(userId);
+     	 //let id = document.getElementById("m_id");
+     	 
+     	 $.ajax({
+     		 type:"get",
+     		 dataType:"text",			  
+     		 url:"http://localhost:8090/prj/signUpOk",   // 여기를  프로젝트명/
+     		 data:{"userId":userId},
+     		 success:function(data, textStatus){			 
+     			 if(data==1){
+     				 alert(data);
+     				 alert("아이디 중복 되었습니다");
+     			 }else if( data==0){
+     				 alert("사용가능합니다.")
+     			 }
+     			 
+     		 },
+     		 error:function(data, textStatus){
+     			 //alert("서버통신 에러")
+     		 },
+     		 complete:function(data, textStatus){
+     			// alert("작업완료");			 
+     		 }
+     	 });
+     		    
+        }
+
+        
+    </script>
+</body>
+</html>

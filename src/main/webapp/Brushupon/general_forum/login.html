@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="../general_forum/StyleCss/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	
+    <header>
+        
+        <a href="/prj/Brushupon/general_forum/mainPage.html">
+           <img class="img" src = "/prj/Brushupon/images/logo.png"  >
+        </a>
+     
+    </header>
+
+   
+    <form method="post" name="frm" action="/prj/loginOk">
+        <div class="wrap" > 
+
+            <h2>로그인</h2>
+
+            <div class="info_div">
+                <input type="text" name="userId" placeholder="아이디를 입력하세요" class="idInput" id="userId"> 
+                
+            </div>
+
+            <div class="info_div">
+                  
+                <input type="password"  name="userPassword" placeholder="비밀번호를 입력하세요" class="pwInput" id="userPassword">
+            </div> 
+
+            <div class="info_div">
+                <button type="button"  class="loginButton"  onclick='loginBtn()'>로그인</button>           
+                <button type="button"  class="signUpButton" onclick='signUpBtn()'>회원가입</button>
+            </div>
+        </div>
+    </form>
+    
+    <script>
+        function loginBtn(){
+        	let userId =document.frm.userId;
+            let userPassword = document.frm.userPassword;
+          
+             if(userId.value ==""){
+                 alert("아이디를 입력하세요.");
+                 document.frm.userId.focus();
+             }else if(userPassword.value ==""){
+                 alert("비밀번호를 입력하세요.");
+                 document.frm.userPassword.focus();
+             }else{
+            	loginCheck();
+            	 /* document.frm.submit(); */
+             }
+            
+             
+        }
+        function loginCheck(){
+
+        	
+        	//jquery로 태그선택
+     	   let userId = $("#userId").val();
+        	let userPassword = $("#userPassword").val();
+        	
+     		alert(userId + " " + userPassword);
+     		 
+     	 
+     	 //let id = document.getElementById("m_id");
+     	 
+     	 $.ajax({
+     		 type:"post",
+     		 dataType:"text",			  
+     		 url:"http://localhost:8090/prj/loginCheck",   // 여기를  프로젝트명/
+     		 data:{"userId":userId, "userPassword":userPassword},
+     		 success:function(data, textStatus){	
+     			 alert(data);
+     			 if(data==0){
+     				 alert(data);
+     				 alert("아이디가 존재하지 않습니다. \n 확인 후 다시 입력해주세요. ");
+     			 }else if( data==2){
+     				 alert("잘못된 비밀번호입니다. 다시 입력해주세요.");
+     			 }else if( data==1){
+     				 alert("로그인 성공!");
+     				 window.location.href="mainPage2.html";
+     				
+     			 }
+     			 
+     		 },
+     		 
+     		 
+     	 });
+     		    
+        }
+        function signUpBtn(){
+            window.location.href='./signUp.html';
+        }
+    </script>
+</body>
+</html>

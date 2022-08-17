@@ -1,0 +1,36 @@
+     /*로그인, 회원가입 버튼*/
+    #mainBtn{
+        margin-top : 90px;
+        margin-right:20px;
+        float : right;
+
+    }
+    .btn1 {
+        height : 30px;
+        border: 1px solid white;
+        outline: none;
+        border-radius: 5px; 
+    }
+    .btn2 {
+        height : 30px;
+        border: 1px solid white;
+        outline: none;
+        border-radius: 5px; 
+    }
+    #mainBtn .btn1:hover{ 
+        background-color: #6FA869;
+        color: white;
+    }
+    #mainBtn .btn2:hover{ 
+        background-color: #6FA869;
+        color: white;
+    }
+    /*검색바*/
+    .searchBar{
+        width: 200px;
+        height: 20px;
+        margin-bottom: 5px;
+        border: 0.5px solid black;
+        border-radius: 5px;
+        padding-left: 10px;
+    }

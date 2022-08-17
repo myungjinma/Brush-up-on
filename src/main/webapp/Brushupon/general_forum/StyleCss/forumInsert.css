@@ -1,0 +1,81 @@
+     
+     
+
+    /*게시판 등록*/
+    .forum {
+        width: 70%;
+        height: 600px;
+        border: 2px solid #6FA869;
+        margin: auto;
+        margin-top: 5%;
+        border-collapse: collapse;
+        text-align: left;
+        line-height: 1.5;
+    }
+    
+    .forum thead th {
+
+        padding: 10px;
+        font-weight: bolder;
+        vertical-align: top;
+        border-bottom: 2px solid #6FA869;
+        text-align: center;
+    }
+
+    .forum tbody th {
+        width: 10%;
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        border-bottom: 2px solid #6FA869;
+        text-align: center;
+    }
+
+    /*게시글 제목*/
+    .forumTitle{
+        height: 20px;
+        border: 2px solid #6FA869;
+    }
+    /*게시글 제목*/
+    .forum td {
+        width: 350px;
+        padding: 10px;
+        vertical-align: top;
+        border-bottom: 2px solid #6FA869;
+    }
+    /*버튼*/
+    #mainBtn {
+        margin-top : 90px;
+        margin-right:20px;
+        float : right;
+    }
+    /*게시글 등록 버튼*/
+    .insertButton{
+        width: 150px;
+        height: 30px;
+        background-color: white;
+        border: 2px solid #6FA869;
+        float: right;
+        margin-right: 15%;
+        margin-top: 10px;
+        display: block;
+        font-weight: bold;
+
+    }
+    .insertButton:hover{
+        background-color: #2f9c23;
+        color: white;
+
+    }
+    /*게시글 내용*/
+    .textarea{
+        border: 0px; 
+        width: 100%; 
+        height: 100%; 
+        outline: none; 
+        word-break: break-all; 
+        white-space: normal;
+        word-wrap: normal;
+        display: block;
+        resize:none;
+    }

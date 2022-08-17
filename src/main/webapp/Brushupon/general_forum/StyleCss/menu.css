@@ -1,0 +1,39 @@
+/*로고이미지*/
+img{
+    margin-left:10%;
+}
+/*버튼*/
+#mainBtn {
+    margin-top : 90px;
+    margin-right:20px;
+    float : right;
+}
+/*상단 메뉴보드*/ 
+.menu {
+    width: 100%;
+    background-color: #E2F0D9;
+    color: #000;
+    list-style-type: none;
+    margin-left: -10px;
+    display :flex;  
+    border: 1px solid #6FA869;
+    border-bottom: 2px solid #6FA869;
+	border-top : 2px solid #6FA869;
+}
+.menu li a {
+    width: 30%;
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+    margin-left : 80px;
+    padding:20px 50px 20px 50px;
+    color: #000;
+    
+}
+.menu li a:hover{ 
+    background-color: #6FA869;
+    color: white;
+}

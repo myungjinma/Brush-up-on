@@ -1,0 +1,69 @@
+h2 {
+    color: rgb(31, 153, 57);
+    font-size: 2em;
+    
+}
+.img{
+    width: 160px;
+    margin: auto;
+    margin-left: 46%;
+    padding-top: 60px;
+}
+.wrap{
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid #6FA869;
+    margin: auto;
+    margin-top: 90px;
+    
+}
+
+.info_div{
+    margin-top: 50px;
+    margin-left: 60px;
+    width: 100%;
+    font-size: 17px;
+    font-weight: bold;
+    
+}
+ 
+.info_div  input {
+    position: relative;
+    border-radius: 30px;
+    margin-top: 5px;
+    padding: 0px 20px;
+    border: 2px solid #6FA869;
+    outline: none;
+}
+
+div .idInput{
+    width: 80%;
+    height: 45px;
+}
+
+div .pwInput{
+    width: 80%;
+    height: 45px;
+}
+
+button {
+    width: 90%;
+    height: 40px;
+    border: 0.5px solid #6FA869;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+    z-index: -1;
+}
+div .loginBtn:hover{
+    background-color: #6FA869;
+    color: white;
+}
+div .signUpBtn:hover{
+    background-color: #6FA869;
+    color: white;
+}

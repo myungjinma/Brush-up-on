@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel ="stylesheet" href="../StyleCss/menu.css" >
+    <link rel ="stylesheet" href="../StyleCss/btn.css" >
+    <link rel ="stylesheet" href="../StyleCss/forum.css" >
+    <!-- jquery선언 -->
+    <script src="/prj/Brushupon/general_forum/jquery/jquery-3.6.0.js"></script>
+</head>
+<script type="text/javascript">
+	//화면 로드 동시에 fn호출
+	document.addEventListener("DOMContentLoaded", function(){
+		fn_boardList();
+	});
+
+	//ajax로 알고리즘 게시판 리스트 가져오기
+	function fn_boardList(){
+		$.ajax({
+			url : "/prj/board/boardList",    //서블릿 어노테이션 호출
+			type : "post",					 //method 방식 설정 : POST
+			data : { boardType:"2"},		 //서블릿 호출할때 파라미터 값 전달
+			dataType : 'JSON',				 //return 결과 Object형식 Json
+			success : function(data) {	     //성공시 하위 로직 실행
+				for (i=0; i<data.list.length; i++ ) {
+					var boardNum = data.list[i].board_num;	//게시글 번호 채번(상세페이지로 이동시 필요한 고유키값)
+					var text = "<td style='cursor:pointer'  onclick='fn_boardDt('"+boardNum+"');'>"+data.list[i].board_title+"</td>";   //json return시 큰따온표가 표기되어지는 버그 존재 replace하기 위해 별도 text로 분리
+					text = text.replace(/['"]+/g, '');	//큰따온표 제거 및 html tag Id값으로 append함 값을 표기함
+					$("#boardPk").append("<tr> ");
+                    $("#boardPk").append("<td>"+data.list[i].rownum+"</td>");
+                    $("#boardPk").append(text);
+                    $("#boardPk").append("<td>"+data.list[i].board_writedate+"</td>");                    
+                    $("#boardPk").append("</tr> ");
+				}
+			},
+			errer : function() {	//에러 발생시 실행되는 로직
+				var form = document.frm;
+				form.action
+			}
+		});
+	}
+	
+	//상세페이지로 이동하는 function 파라미터로 게시글 상세번호 던진다.
+	function fn_boardDt(boardNum){
+		document.getElementById("boardNum").value = boardNum;
+		document.frm.submit();
+	}
+</script>
+<body>
+	<form method="post" name="frm" action="/prj/board/boardDetail">
+	<!-- 게시글 상세번호 파라미터로 던지기 위해 hidden 생성  -->
+	<input type="hidden" name="boardNum" id="boardNum"/>
+    <header>
+        <a href="/prj/Brushupon/general_forum/mainPage2.html">
+            <img src = "/prj/Brushupon/images/logo.png"  >
+        </a>
+        <div id="mainBtn">
+            <input type="text" class="searchBar" placeholder="search" > 
+            <button type="button" class="btn1" id="btn1" onclick="location.href='/prj/Brushupon/general_forum/logout.jsp' ">로그아웃</button>
+            <button type="button" class="btn2" id="btn2" onclick="location.href='myPage.html' ">마이페이지</button>
+        </div>
+        <div class="header">
+              <ul class="menu">
+               	<li><a href="/prj/Brushupon/general_forum/Algorithm/algorithmFL.html">알고리즘</a></li>
+                  	<li><a href="/prj/Brushupon/general_forum/JAVA/javaFL.html">JAVA</a></li>
+                  	<li><a href="/prj/Brushupon/general_forum/HTML/htmlFL.html">HTML</a></li>
+                  	<li><a href="/prj/Brushupon/general_forum/CSS/cssFL.html">CSS</a></li>
+                  	<li><a href="/prj/Brushupon/general_forum/JAVASCRIPT/javascriptFL.html">JAVASCRIPT</a></li>
+                  	<li><a href="/prj/Brushupon/general_forum/DB/dbFL.html">DB</a></li>
+                  	<li><a href="/prj/Brushupon/general_forum/SERVLET/servletFL.html">SERVLET</a></li>
+              </ul>
+        </div>
+        <main>
+            <table class="table">
+                <h2 class="title">JAVA 게시판</h2>
+                <thead>
+                    <tr>
+                        <th style="width : 20%">번호</th>
+                        <th style="width : 60%">제목</th>
+                        <th style="width: 20%">등록날짜</th>
+                    </tr> 
+                </thead>
+                <tbody id="boardPk">
+                </tbody>
+            </table>
+            <button type="button" id="forumBtn" class="forumBtn" onclick="location.href='/prj/board/boardReg?boardType=2' ">등록하기</button>
+        </main>
+    </header>
+</form>    
+</body>
+</html>

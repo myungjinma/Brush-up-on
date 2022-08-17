@@ -1,0 +1,100 @@
+h2 {
+    color: rgb(31, 153, 57);
+    font-size: 2em;
+}
+.img{
+    width: 160px;
+    margin: auto;
+    margin-left: 46%;
+    padding-top: 60px;
+}
+.wrap{
+    width: 500px;
+    height: 620px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid #6FA869;
+    margin: auto;
+    margin-top: 30px;
+    
+}
+.info_div{
+    
+    margin-top: 30px;
+    margin-left: 60px;
+    width: 100%;
+    font-size: 17px;
+    font-weight: bold;
+    
+}
+
+.info_div  input {
+    
+    border-radius: 30px;
+    margin-top: 5px;
+    padding: 0px 20px;
+    border: 0.5px solid rgb(35, 141, 61);
+    outline: none;
+    
+}
+div .idInput{
+    width: 200px;
+    height: 40px;
+    margin-left: 55px;
+}
+
+.idDoubleCheck {
+    width: 90px;
+    height: 40px;
+    border: 1px solid #6FA869;
+    background-color: white;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+div .pwInput{
+    width: 200px;
+    height: 40px;
+    margin-left: 40px;
+}
+div .doublPwInput{
+    width: 200px;
+    height: 40px;
+    
+}
+div .nameInput{
+    width: 200px;
+    height: 40px;
+    margin-left: 75px;
+}
+
+div .birthInput{
+    width: 200px;
+    height: 40px;
+    margin-left: 40px;
+}
+
+div .phoneInput{
+    width: 200px;
+    height: 40px;
+    margin-left: 25px;
+}
+
+.signUpBtn{
+    width: 10%;
+    height: 40px;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 52%;
+    border: 2px solid #6FA869;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.signUpBtn:hover{
+    background-color: #6FA869;
+    color: white;
+}

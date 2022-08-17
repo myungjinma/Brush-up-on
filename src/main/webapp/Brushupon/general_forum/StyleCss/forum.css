@@ -1,0 +1,31 @@
+.title{
+    text-align: center;
+
+}
+.table {
+    border : solid 1px lightgray;
+    border-collapse: collapse;
+    width : 80%;
+    font-weight:blod;
+    margin: auto;
+}
+table, th, td {border :solid 2px #BCE9B7;}
+thead{height:50px;}
+tbody{
+    text-align : center;
+}
+.forumBtn{
+    width: 90px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid #6FA869;
+    float: right;
+    margin-top: 20px;
+    display: block;
+    font-weight: bold;
+
+}
+.forumBtn:hover{
+    background-color: #3ea533;
+    color: white;
+}

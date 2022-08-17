@@ -1,0 +1,49 @@
+#wrap { 
+    height:800px;
+    border : solid 1px black;
+}
+#content{
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-right : 60px;
+    height : 200px;       
+    border: solid 1px green;
+    padding-left : 20px;
+    padding-top : 30px;
+    
+}
+#introduce{
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-right : 60px;
+    height : 500px;       
+    border: solid 1px blue;
+    padding-left : 20px;
+    display: flex;
+    
+}
+.text{
+
+    border: solid 1px blue;
+    width: 17%;
+    height: 400px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 60px;
+    margin-left: 5px;
+
+}
+.text img {
+    
+    width: 200px;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 15%;    
+}
+.text p{
+    margin-left: 40px;
+    text-align:left;
+}
+.text p span{
+    font-weight: bold;
+}
